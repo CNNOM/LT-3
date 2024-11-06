@@ -3,7 +3,7 @@ package com.example.task2;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
-public class Triangle implements Shape {
+public class Square implements Shape {
     private double side;
     private Color color;
     private double strokeWidth;
@@ -11,7 +11,7 @@ public class Triangle implements Shape {
     private double x;
     private double y;
 
-    public Triangle(double side, Color color) {
+    public Square(double side, Color color) {
         this.side = side;
         this.color = color;
         this.strokeWidth = 1;
@@ -25,16 +25,13 @@ public class Triangle implements Shape {
         gc.setFill(color);
         gc.setStroke(strokeColor);
         gc.setLineWidth(strokeWidth);
-        double height = side * Math.sqrt(3) / 2; // Высота равностороннего треугольника
-        double[] xPoints = {x, x + side / 2, x + side};
-        double[] yPoints = {y + height, y, y + height};
-        gc.fillPolygon(xPoints, yPoints, 3);
-        gc.strokePolygon(xPoints, yPoints, 3);
+        gc.fillRect(x, y, side, side);
+        gc.strokeRect(x, y, side, side);
     }
 
     @Override
     public void descriptor() {
-        System.out.println("Треугольник");
+        System.out.println("Квадрат");
     }
 
     @Override
